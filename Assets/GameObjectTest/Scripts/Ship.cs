@@ -38,7 +38,10 @@ public class Ship : MonoBehaviour
         if (CooldownTimer < 0)
         {
             CooldownTimer = Cooldown;
-            Fire(targetDirection);
+            if (TryGetComponent<ShipShooter>(out var shooter))
+            {
+                shooter.Fire(targetDirection, Affiliation);
+            }
         }
 
         Move(targetDirection);

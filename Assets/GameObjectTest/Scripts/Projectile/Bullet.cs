@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet : Projectile
+public class BulletPr : Projectile
 {
     private void Awake()
     {

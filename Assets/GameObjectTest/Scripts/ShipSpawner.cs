@@ -44,6 +44,8 @@ public class ShipSpawner : MonoBehaviour
                 ship.MaxAmmo = 100;
                 ship.ProjectilePrefab = projectile;
 
+                shipGO.AddComponent<ShipShooter>();
+
                 TargetingSystem.Ships.Add(shipGO);
 
                 shipsSpawned++;
