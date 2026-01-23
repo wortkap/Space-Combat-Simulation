@@ -491,9 +491,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShipSpawner
   ShipPrefab: {fileID: 5641132427090525949, guid: 8b3fb7574d505d34ba599fbef7d748d1, type: 3}
-  ProjectilePrefab: {fileID: 7853772244638867833, guid: a6a0a6a2dbc88ca43a7cbc8912a1ba79, type: 3}
+  BulletPrefab: {fileID: 7853772244638867833, guid: a6a0a6a2dbc88ca43a7cbc8912a1ba79, type: 3}
+  MissileProjectilePrefab: {fileID: 7853772244638867833, guid: e50b577aeb3a8a54abcd36cd8c250457, type: 3}
   TargetingSystem: {fileID: 1423339446}
-  ShipCount: 5
+  ShipCount: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

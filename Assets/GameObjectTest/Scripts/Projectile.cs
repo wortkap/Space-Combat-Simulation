@@ -3,30 +3,52 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Affiliation Affiliation;
-    private float damage;
-    private float speed;
+    public float damage;
+    public float speed;
     public Vector3 direction;
     public GameObject Target;
 
-    private void Start()
+    protected virtual void Start()
     {
-        damage = 10f;
-        speed = 10f;
+        transform.LookAt(Target.transform.position);
     }
 
-    private void Update()
+    protected virtual void Update()
+    {
+        if (Target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        UpdateDirection();
+        Move();
+        UpdateRotation();
+    }
+
+    protected virtual void UpdateDirection()
+    {
+        // Default behavior: do nothing
+        // Bullets keep their initial direction
+    }
+
+    protected void Move() // virtual when missile becomes more realistic
     {
         transform.position += speed * Time.deltaTime * direction;
     }
-    private void OnTriggerEnter(Collider other)
+    protected virtual void UpdateRotation()
     {
-        if (!other.gameObject.TryGetComponent<Ship>(out var Ship))
+
+    }
+
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        if (!other.TryGetComponent<Ship>(out var ship))
             return;
 
-        if (Ship.Affiliation != Affiliation)
+        if (ship.Affiliation != Affiliation)
         {
-            Ship.ReceiveDamage(damage);
-            Debug.Log("Projectile has hit an enemy ship");
+            ship.ReceiveDamage(damage);
             Destroy(gameObject);
         }
     }

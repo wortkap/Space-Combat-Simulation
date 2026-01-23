@@ -26,19 +26,22 @@ public class Ship : MonoBehaviour
 
     private void Update()
     {
-        if (Target != null)
+        if (Target == null)
         {
-            Vector3 targetDirection = (Target.transform.position - transform.position).normalized;
-
-            CooldownTimer -= Time.deltaTime;
-            if (CooldownTimer < 0)
-            {
-                CooldownTimer = Cooldown;
-                Fire(targetDirection);
-            }
-
-            Move(targetDirection);
+            Target = null;
+            return;
         }
+
+        Vector3 targetDirection = (Target.transform.position - transform.position).normalized;
+
+        CooldownTimer -= Time.deltaTime;
+        if (CooldownTimer < 0)
+        {
+            CooldownTimer = Cooldown;
+            Fire(targetDirection);
+        }
+
+        Move(targetDirection);
     }
 
     private void Fire(Vector3 targetDirection)
@@ -63,5 +66,12 @@ public class Ship : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        TargetingSystem ts = FindAnyObjectByType<TargetingSystem>();
+        if (ts != null)
+            ts.Ships.Remove(gameObject);
     }
 }

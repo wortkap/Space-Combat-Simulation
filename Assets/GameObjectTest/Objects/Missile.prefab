@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 637059210145738739}
   - component: {fileID: 6743154546844838926}
   - component: {fileID: 6058812306609851383}
-  - component: {fileID: 6786491923745898213}
   - component: {fileID: -2271306295000847567}
+  - component: {fileID: -4212262849059332998}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c2e40fa84d53ccd428f640eac126b1fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,21 +114,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6786491923745898213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7853772244638867833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d821885eaacff749a5e8bec3c227425, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  Affiliation: 0
-  direction: {x: 0, y: 0, z: 0}
-  Target: {fileID: 0}
 --- !u!54 &-2271306295000847567
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -156,3 +141,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4212262849059332998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853772244638867833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f436cbd3c8152304d8446ef40daa027e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MissileProjectile
+  Affiliation: 0
+  damage: 25
+  speed: 10
+  direction: {x: 0, y: 0, z: 0}
+  Target: {fileID: 0}
