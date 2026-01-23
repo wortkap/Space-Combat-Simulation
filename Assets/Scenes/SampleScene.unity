@@ -443,6 +443,8 @@ GameObject:
   - component: {fileID: 1423339445}
   - component: {fileID: 1423339447}
   - component: {fileID: 1423339446}
+  - component: {fileID: 1423339448}
+  - component: {fileID: 1423339449}
   m_Layer: 0
   m_Name: ShipManager
   m_TagString: Untagged
@@ -494,7 +496,33 @@ MonoBehaviour:
   BulletPrefab: {fileID: 7853772244638867833, guid: a6a0a6a2dbc88ca43a7cbc8912a1ba79, type: 3}
   MissileProjectilePrefab: {fileID: 7853772244638867833, guid: e50b577aeb3a8a54abcd36cd8c250457, type: 3}
   TargetingSystem: {fileID: 1423339446}
-  ShipCount: 10
+  ShipCount: 100
+--- !u!114 &1423339448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423339444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58d8b2f9bfde58429e0f0814b749263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileTracker
+--- !u!114 &1423339449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423339444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072175804c602184697ce8a01d71e6df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletPool
+  bulletPrefab: {fileID: 7853772244638867833, guid: a6a0a6a2dbc88ca43a7cbc8912a1ba79, type: 3}
+  initalSize: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

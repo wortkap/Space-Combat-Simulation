@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class MissileProjectile : Projectile
 {
+    private void Awake()
+    {
+        Type = ProjectileType.Missile;
+    }
+
     protected override void UpdateDirection()
     {
         if (Target == null) 
@@ -11,6 +16,7 @@ public class MissileProjectile : Projectile
 
         direction = desiredDirection;
     }
+
     protected override void UpdateRotation()
     {
         if (Target == null)

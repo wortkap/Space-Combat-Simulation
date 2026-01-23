@@ -158,3 +158,5 @@ MonoBehaviour:
   speed: 10
   direction: {x: 0, y: 0, z: 0}
   Target: {fileID: 0}
+  Type: 0
+  LifeTime: 10

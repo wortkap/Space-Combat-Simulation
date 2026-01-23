@@ -46,7 +46,16 @@ public class Ship : MonoBehaviour
 
     private void Fire(Vector3 targetDirection)
     {
-        GameObject projectile = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
+        GameObject projectile = null;
+        if (ProjectilePrefab.TryGetComponent<Bullet>(out var bullet))
+        {
+            projectile = BulletPool.Instance.GetBullet();
+            projectile.transform.position = transform.position;
+        }
+        else
+        {
+            projectile = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
+        }
         Projectile _projectile = projectile.GetComponent<Projectile>();
         _projectile.Affiliation = Affiliation;
         _projectile.direction = targetDirection;
