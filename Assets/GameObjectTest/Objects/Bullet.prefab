@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   Affiliation: 0
   damage: 10
-  speed: 15
+  speed: 20
   direction: {x: 0, y: 0, z: 0}
   Target: {fileID: 0}
   Type: 0

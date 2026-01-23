@@ -3,6 +3,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
+[BurstCompile]
 partial struct BulletSpawnSystem : ISystem
 {
     private EntityArchetype _bulletArchetype;
@@ -14,7 +15,8 @@ partial struct BulletSpawnSystem : ISystem
             typeof(Bullet),
             typeof(Lifetime),
             typeof(Direction),
-            typeof(Faction)
+            typeof(Faction),
+            typeof(GridCell)
         );
     }
 

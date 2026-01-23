@@ -2,14 +2,9 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 
+[BurstCompile]
 partial struct BulletMovementSystem : ISystem
 {
-    [BurstCompile]
-    public void OnCreate(ref SystemState state)
-    {
-        
-    }
-
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
@@ -18,11 +13,5 @@ partial struct BulletMovementSystem : ISystem
         {
             transform.ValueRW.Position += dt * bullet.ValueRO.Speed * direction.ValueRO.Value;
         }
-    }
-
-    [BurstCompile]
-    public void OnDestroy(ref SystemState state)
-    {
-        
     }
 }

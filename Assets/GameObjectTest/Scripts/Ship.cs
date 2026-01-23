@@ -1,3 +1,4 @@
+using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
 
@@ -19,7 +20,7 @@ public class Ship : MonoBehaviour
     private void Start()
     {
         CurrentHealth = MaxHealth;
-        CurrentSpeed = 1;
+        CurrentSpeed = 5;
         CooldownTimer = Cooldown;
         CurrentAmmo = MaxAmmo;
     }
@@ -45,25 +46,17 @@ public class Ship : MonoBehaviour
         }
 
         Move(targetDirection);
-    }
 
-    private void Fire(Vector3 targetDirection)
-    {
-        GameObject projectile = null;
-        if (ProjectilePrefab.TryGetComponent<Bullet>(out var bullet))
+        if (CurrentHealth <= 0)
         {
-            projectile = BulletPool.Instance.GetBullet();
-            projectile.transform.position = transform.position;
+            var bridge = GetComponent<ShipECSBridge>();
+            if (bridge != null && bridge.ShipEntity != Entity.Null)
+            {
+                World.DefaultGameObjectInjectionWorld.EntityManager.DestroyEntity(bridge.ShipEntity);
+            }
+
+            Destroy(gameObject);
         }
-        else
-        {
-            projectile = Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
-        }
-        Projectile _projectile = projectile.GetComponent<Projectile>();
-        _projectile.Affiliation = Affiliation;
-        _projectile.direction = targetDirection;
-        _projectile.Target = Target;
-        CurrentAmmo--;
     }
 
     private void Move(Vector3 targetDirection)
@@ -74,10 +67,6 @@ public class Ship : MonoBehaviour
     public void ReceiveDamage(float damage)
     {
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void OnDestroy()

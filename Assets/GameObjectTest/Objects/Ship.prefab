@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 503468698605085246}
   - component: {fileID: 7813720656183555225}
   - component: {fileID: 6204878903456781075}
+  - component: {fileID: 8457104734570728719}
+  - component: {fileID: 1542137515423483148}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -136,3 +138,30 @@ MonoBehaviour:
   CurrentAmmo: 0
   ProjectilePrefab: {fileID: 0}
   Target: {fileID: 0}
+--- !u!114 &8457104734570728719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641132427090525949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29233c7f7cedf940bf1ece1cce73545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShipShooter
+  BulletSpeed: 20
+  BulletDamage: 10
+  BulletLifetime: 5
+--- !u!114 &1542137515423483148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641132427090525949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc61f88509e6c44887c1eb7fb5e3f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShipECSBridge
