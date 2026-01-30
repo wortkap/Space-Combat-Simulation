@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78ab27587d385542bd68c3c41f32a0f, type: 3}
+  m_Name: ShipDataBase
+  m_EditorClassIdentifier: Assembly-CSharp::ShipDataBase
+  ships:
+  - Id: ship_basic
+    Name: Basic Ship
+    HullId: hull_corvette
+    ThrusterModuleId: thruster_basic
+    WeaponModuleIds:
+    - weapon_bullet
+    UtilityModuleIds: []
+    ArmorFrontCount: 0
+    ArmorBackCount: 0
+    ArmorBodyCount: 0
+    WeaponLocalPositions:
+    - {x: 0, y: 0, z: 0}
+    WeaponLocalEuler:
+    - {x: 0, y: 0, z: 0}
+    ThrusterLocalPosition: {x: 0, y: 0, z: 0}
+    ThrusterLocalEuler: {x: 0, y: 0, z: 0}

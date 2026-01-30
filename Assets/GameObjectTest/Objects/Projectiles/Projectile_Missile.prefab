@@ -48,3 +48,4 @@ MonoBehaviour:
   Damage: 50
   Lifetime: 10
   ProjectileType: 1
+  Prefab: {fileID: 8640182723126965134, guid: 36b9acb810d8f3741a6f14aeb913f40f, type: 3}
